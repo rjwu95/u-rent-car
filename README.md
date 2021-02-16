@@ -1,9 +1,10 @@
 # To Do List
 
+- [x] 앱 전체 레이아웃 잡기
 - [x] car 목록 페이지 만들기
-- [] car 등록 페이지 만들기
-- [] staff 목록 페이지 만들기
-- [] staff 등록 페이지 만들기
+- [x] car 등록 페이지 만들기
+- [x] staff 목록 페이지 만들기
+- [x] staff 등록 페이지 만들기
 - [] customer 목록 페이지 만들기
 - [] customer 등록 페이지 만들기
 - [] daum post code 이용해서 주소 조회하기

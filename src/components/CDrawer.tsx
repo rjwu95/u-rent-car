@@ -21,6 +21,11 @@ export const CDrawer: React.FC<CDrawerProps> = ({ visible, setVisible }) => {
       visible={visible}
     >
       <Row>
+        <Link onClick={onClose} to="/contract">
+          계약서관리
+        </Link>
+      </Row>
+      <Row>
         <Link onClick={onClose} to="/car">
           차량관리
         </Link>
@@ -31,8 +36,8 @@ export const CDrawer: React.FC<CDrawerProps> = ({ visible, setVisible }) => {
         </Link>
       </Row>
       <Row>
-        <Link onClick={onClose} to="/contract">
-          계약서관리
+        <Link onClick={onClose} to="/customer">
+          고객관리
         </Link>
       </Row>
     </Drawer>

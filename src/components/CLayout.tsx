@@ -1,8 +1,18 @@
 import React, { useState } from "react";
 import { Layout } from "antd";
 import { CDrawer, CHeader } from "../components";
+import styled from "styled-components";
 
 const { Content } = Layout;
+
+const ContentBlock = styled(Content)`
+  padding: 24px;
+  overflow: initial;
+  .content-container {
+    padding: 24px;
+    background: white;
+  }
+`;
 
 interface CLayoutProps {
   children: JSX.Element;
@@ -13,16 +23,11 @@ export const CLayout: React.FC<CLayoutProps> = ({ children }) => {
   return (
     <Layout>
       <CDrawer visible={visible} setVisible={setVisible} />
-      <Layout className="site-layout">
+      <Layout>
         <CHeader setVisible={setVisible} />
-        <Content style={{ margin: "24px 16px", overflow: "initial" }}>
-          <div
-            className="site-layout-background"
-            style={{ padding: 24, textAlign: "center" }}
-          >
-            {children}
-          </div>
-        </Content>
+        <ContentBlock>
+          <div className="content-container">{children}</div>
+        </ContentBlock>
       </Layout>
     </Layout>
   );
