@@ -5,8 +5,8 @@
 - [x] car 등록 페이지 만들기
 - [x] staff 목록 페이지 만들기
 - [x] staff 등록 페이지 만들기
-- [] customer 목록 페이지 만들기
-- [] customer 등록 페이지 만들기
+- [x] customer 목록 페이지 만들기
+- [x] customer 등록 페이지 만들기
 - [] daum post code 이용해서 주소 조회하기
 
 # Getting Started with Create React App
