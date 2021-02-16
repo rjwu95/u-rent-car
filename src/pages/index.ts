@@ -4,3 +4,4 @@ export * from "./Contract";
 export * from "./Home";
 export * from "./Staff";
 export * from "./StaffRegister";
+export * from "./Customer";
