@@ -1,11 +1,27 @@
 import { Button, Form, Input, InputNumber } from "antd";
+import { useState } from "react";
 import { FormBlock, SubmitButton } from "../components";
 
 export const CustomerRegister = () => {
+  const [address, setAddress] = useState("");
+  const [postcode, setPostcode] = useState("");
   const onFinish = (a: any) => {
     console.log(a);
   };
+
   const onClickPostSearch = () => {
+    const daum = (window as any).daum;
+    new daum.Postcode({
+      oncomplete: (data: any) => {
+        const { roadAddress, zonecode } = data;
+        console.log(
+          "🚀 ~ file: CustomerRegister.tsx ~ line 16 ~ onClickPostSearch ~ roadAddress",
+          roadAddress
+        );
+        setAddress(roadAddress);
+        setPostcode(zonecode);
+      },
+    }).open();
   };
 
   return (
@@ -58,8 +74,15 @@ export const CustomerRegister = () => {
           </Form.Item>
         </Form.Item>
         <Form.Item label="우편번호" name="postId">
-          <Input disabled />
+          <Input readOnly onClick={onClickPostSearch} value={postcode} />
           <Button onClick={onClickPostSearch}>조회</Button>
+        </Form.Item>
+        <Form.Item label="주소" name="address">
+          <Input readOnly onClick={onClickPostSearch} value={address} />
+          <div /> {/* 값 렌더링 안되는 버그 */}
+        </Form.Item>
+        <Form.Item label="상세주소" name="detailAddress">
+          <Input />
         </Form.Item>
         <SubmitButton />
       </>
