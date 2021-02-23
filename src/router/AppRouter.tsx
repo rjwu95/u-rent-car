@@ -9,6 +9,7 @@ import {
   StaffRegister,
   Customer,
   CustomerRegister,
+  CarDetail,
 } from "../pages";
 import { CLayout } from "../components";
 // import PrivateRoute from "./PrivateRoute";
@@ -18,30 +19,15 @@ const Router = () => {
     <BrowserRouter>
       <CLayout>
         <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/contract">
-            <Contract />
-          </Route>
-          <Route exact path="/car">
-            <Car />
-          </Route>
-          <Route exact path="/staff">
-            <Staff />
-          </Route>
-          <Route path="/car/register">
-            <CarRegister />
-          </Route>
-          <Route path="/staff/register">
-            <StaffRegister />
-          </Route>
-          <Route exact path="/customer">
-            <Customer />
-          </Route>
-          <Route path="/customer/register">
-            <CustomerRegister />
-          </Route>
+          <Route exact path="/" component={Home} />
+          <Route path="/contract" component={Contract} />
+          <Route exact path="/car" component={Car} />
+          <Route exact path="/staff" component={Staff} />
+          <Route path="/car/register" component={CarRegister} />
+          <Route path="/staff/register" component={StaffRegister} />
+          <Route exact path="/customer" component={Customer} />
+          <Route path="/customer/register" component={CustomerRegister} />
+          <Route path="/car/detail/:id" component={CarDetail} />
         </Switch>
       </CLayout>
     </BrowserRouter>

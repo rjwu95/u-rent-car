@@ -1,4 +1,5 @@
 import React from "react";
+import { RouteComponentProps } from "react-router-dom";
 import { SearchBar } from "../components";
 import { RegisterButton } from "../components/RegisterButton";
 import { TableBlock } from "../utils/table";
@@ -46,8 +47,20 @@ const columns = [
   },
 ];
 
-export const Car = () => {
-  const dataSource = [
+type CarData = {
+  key: number;
+  number: string;
+  name: string;
+  grade: string;
+  fuel: string;
+  gear: string;
+  distance: string;
+  remainFuel: string;
+  status: string;
+};
+
+export const Car: React.FC<RouteComponentProps> = ({ history }) => {
+  const dataSource: CarData[] = [
     {
       key: 1,
       number: "24하2522",
@@ -88,7 +101,15 @@ export const Car = () => {
   return (
     <>
       <SearchBar onFinish={onSearch} />
-      <TableBlock dataSource={dataSource} columns={columns} />
+      <TableBlock
+        dataSource={dataSource}
+        columns={columns}
+        onRow={(record, rowIndex) => {
+          return {
+            onClick: (event) => history.push(`/car/detail/1`),
+          };
+        }}
+      />
       <RegisterButton link="/car/register" label="차량등록" />
     </>
   );
