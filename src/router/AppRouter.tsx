@@ -10,6 +10,7 @@ import {
   Customer,
   CustomerRegister,
   CarDetail,
+  CustomerDetail,
 } from "../pages";
 import { CLayout } from "../components";
 // import PrivateRoute from "./PrivateRoute";
@@ -28,6 +29,7 @@ const Router = () => {
           <Route exact path="/customer" component={Customer} />
           <Route path="/customer/register" component={CustomerRegister} />
           <Route path="/car/detail/:id" component={CarDetail} />
+          <Route path="/customer/detail/:id" component={CustomerDetail} />
         </Switch>
       </CLayout>
     </BrowserRouter>

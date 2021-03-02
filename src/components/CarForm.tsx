@@ -117,11 +117,7 @@ export const CarForm: React.FC<CarFormProps> = ({
         >
           <InputNumber placeholder="%" />
         </Form.Item>
-        <Form.Item
-          label="차량연식"
-          className="margin-bottom-zero"
-          rules={[{ required: true }]}
-        >
+        <Form.Item label="차량연식" rules={[{ required: true }]}>
           <Form.Item name={["birth", "year"]}>
             <InputNumber placeholder="oo년" />
           </Form.Item>

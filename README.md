@@ -8,8 +8,8 @@
 - [x] customer 목록 페이지 만들기
 - [x] customer 등록 페이지 만들기
 - [x] daum post code 이용해서 주소 조회하기
-- [] car detail 페이지 만들기
-- [] customer detail 페이지 만들기
+- [x] car detail 페이지 만들기
+- [x] customer detail 페이지 만들기
 
 # Getting Started with Create React App
 

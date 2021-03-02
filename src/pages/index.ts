@@ -7,3 +7,4 @@ export * from "./StaffRegister";
 export * from "./Customer";
 export * from "./CustomerRegister";
 export * from "./CarDetail";
+export * from "./CustomerDetail";

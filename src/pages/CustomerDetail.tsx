@@ -1,10 +1,8 @@
 import React from "react";
 import { CustomerForm } from "../components";
 
-export const CustomerRegister = () => {
-  const onFinish = (a: any) => {
-    console.log(a);
-  };
+export const CustomerDetail = () => {
+  const onFinish = (value: any) => console.log(value);
 
   return <CustomerForm onFinish={onFinish} />;
 };

@@ -7,3 +7,4 @@ export * from "./FormBlock";
 export * from "./SubmitButton";
 export * from "./RegisterButton";
 export * from "./CarForm";
+export * from "./CustomerForm";

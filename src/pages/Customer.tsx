@@ -1,4 +1,6 @@
+import { Table } from "antd";
 import React from "react";
+import { RouteComponentProps } from "react-router-dom";
 import { SearchBar, RegisterButton } from "../components";
 import { TableBlock } from "../utils/table";
 
@@ -30,13 +32,21 @@ const dataSource = [
     address: "서울시 땡땡구 땡땡로 12-12",
   },
 ];
-export const Customer = () => {
+export const Customer: React.FC<RouteComponentProps> = ({ history }) => {
   const onSearch = () => {};
 
   return (
     <>
       <SearchBar onFinish={onSearch} />
-      <TableBlock dataSource={dataSource} columns={columns} />
+      <Table<typeof dataSource[0]>
+        dataSource={dataSource}
+        columns={columns}
+        onRow={(record, rowIndex) => {
+          return {
+            onClick: (event) => history.push(`/customer/detail/${record.key}`),
+          };
+        }}
+      />
       <RegisterButton label="고객등록" link="/customer/register" />
     </>
   );
