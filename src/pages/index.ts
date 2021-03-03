@@ -8,3 +8,5 @@ export * from "./Customer";
 export * from "./CustomerRegister";
 export * from "./CarDetail";
 export * from "./CustomerDetail";
+export * from "./ContractDetail";
+export * from "./ContractRegister";

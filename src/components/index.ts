@@ -8,3 +8,4 @@ export * from "./SubmitButton";
 export * from "./RegisterButton";
 export * from "./CarForm";
 export * from "./CustomerForm";
+export * from "./ContractForm";

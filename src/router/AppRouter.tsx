@@ -11,6 +11,8 @@ import {
   CustomerRegister,
   CarDetail,
   CustomerDetail,
+  ContractRegister,
+  ContractDetail,
 } from "../pages";
 import { CLayout } from "../components";
 // import PrivateRoute from "./PrivateRoute";
@@ -21,7 +23,7 @@ const Router = () => {
       <CLayout>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/contract" component={Contract} />
+          <Route exact path="/contract" component={Contract} />
           <Route exact path="/car" component={Car} />
           <Route exact path="/staff" component={Staff} />
           <Route path="/car/register" component={CarRegister} />
@@ -30,6 +32,8 @@ const Router = () => {
           <Route path="/customer/register" component={CustomerRegister} />
           <Route path="/car/detail/:id" component={CarDetail} />
           <Route path="/customer/detail/:id" component={CustomerDetail} />
+          <Route path="/contract/detail/:id" component={ContractDetail} />
+          <Route path="/contract/register" component={ContractRegister} />
         </Switch>
       </CLayout>
     </BrowserRouter>
