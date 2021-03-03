@@ -2,7 +2,7 @@ import React from "react";
 import { RouteComponentProps } from "react-router-dom";
 import { SearchBar } from "../components";
 import { RegisterButton } from "../components/RegisterButton";
-import { TableBlock } from "../utils/table";
+import { Table } from "antd";
 
 const columns = [
   {
@@ -101,12 +101,12 @@ export const Car: React.FC<RouteComponentProps> = ({ history }) => {
   return (
     <>
       <SearchBar onFinish={onSearch} />
-      <TableBlock
+      <Table<typeof dataSource[0]>
         dataSource={dataSource}
         columns={columns}
         onRow={(record, rowIndex) => {
           return {
-            onClick: (event) => history.push(`/car/detail/1`),
+            onClick: (event) => history.push(`/car/detail/${record.key}`),
           };
         }}
       />

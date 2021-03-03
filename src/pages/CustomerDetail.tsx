@@ -4,5 +4,5 @@ import { CustomerForm } from "../components";
 export const CustomerDetail = () => {
   const onFinish = (value: any) => console.log(value);
 
-  return <CustomerForm onFinish={onFinish} />;
+  return <CustomerForm submitLabel="저장" onFinish={onFinish} />;
 };

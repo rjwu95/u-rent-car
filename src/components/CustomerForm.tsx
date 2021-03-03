@@ -4,9 +4,13 @@ import { FormBlock, SubmitButton } from "../components";
 
 interface CustomerFormProps {
   onFinish(value: any): void;
+  submitLabel?: string;
 }
 
-export const CustomerForm = ({ onFinish }: CustomerFormProps) => {
+export const CustomerForm = ({
+  onFinish,
+  submitLabel = "등록",
+}: CustomerFormProps) => {
   const [address, setAddress] = useState("");
   const [postcode, setPostcode] = useState("");
 
@@ -84,7 +88,7 @@ export const CustomerForm = ({ onFinish }: CustomerFormProps) => {
         <Form.Item label="상세주소" name="detailAddress">
           <Input />
         </Form.Item>
-        <SubmitButton />
+        <SubmitButton label={submitLabel} />
       </>
     </FormBlock>
   );
