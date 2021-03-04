@@ -1,6 +1,7 @@
 import { Button, Form, Input, InputNumber } from "antd";
 import { useState } from "react";
 import { FormBlock, SubmitButton } from "../components";
+import usePostcode from "../hooks/usePostcode";
 
 interface CustomerFormProps {
   onFinish(value: any): void;
@@ -11,23 +12,7 @@ export const CustomerForm = ({
   onFinish,
   submitLabel = "등록",
 }: CustomerFormProps) => {
-  const [address, setAddress] = useState("");
-  const [postcode, setPostcode] = useState("");
-
-  const onClickPostSearch = () => {
-    const daum = (window as any).daum;
-    new daum.Postcode({
-      oncomplete: (data: any) => {
-        const { roadAddress, zonecode } = data;
-        console.log(
-          "🚀 ~ file: CustomerRegister.tsx ~ line 16 ~ onClickPostSearch ~ roadAddress",
-          roadAddress
-        );
-        setAddress(roadAddress);
-        setPostcode(zonecode);
-      },
-    }).open();
-  };
+  const { address, postcode, onClickPostSearch } = usePostcode();
   return (
     <FormBlock onFinish={onFinish}>
       <>

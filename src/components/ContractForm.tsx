@@ -1,33 +1,27 @@
 import React, { useState } from "react";
-import { Form, Input, InputNumber, Select } from "antd";
+import {
+  Button,
+  DatePicker,
+  Form,
+  Input,
+  InputNumber,
+  Select,
+  Typography,
+} from "antd";
 import { SubmitButton, FormBlock } from "../components";
+import usePostcode from "../hooks/usePostcode";
 const { Option, OptGroup } = Select;
+const { Title } = Typography;
 
-const statusOptions = [
-  "미운행",
-  "정상운행",
-  "수리중",
-  "검사중",
-  "폐차",
-  "매각",
-  "직원운행",
+const lisenceTypeOptions = [
+  "1종보통",
+  "1종대형",
+  "2종보통",
+  "2종소형",
+  "1종특수",
+  "1종장애인",
+  "2종장애인",
 ];
-const gradeOptions = [
-  "대형차",
-  "화물",
-  "소형SUV",
-  "대형SUV",
-  "준대형",
-  "경차",
-  "수입차",
-  "승합차",
-  "준중형",
-  "중형",
-  "RV",
-  "중형SUV",
-];
-const gearOptions = ["수동", "오토"];
-const fuelOptions = ["휘발유", "경유", "LPG", "전기"];
 
 interface ContractFormProps {
   onFinish(value: any): void;
@@ -40,94 +34,187 @@ export const ContractForm: React.FC<ContractFormProps> = ({
   submitLabel = "등록",
   initNumber,
 }) => {
-  const [inputs, setInputs] = useState({
-    number: initNumber || "",
-  });
+  const { address, postcode, onClickPostSearch } = usePostcode();
   return (
     <FormBlock onFinish={onFinish}>
       <>
-        <Form.Item name="number" label="차량번호" rules={[{ required: true }]}>
-          <Input
-            allowClear
-            value={inputs.number}
-            onChange={(e) =>
-              setInputs((pre) => ({ ...pre, number: e.target.value }))
-            }
-          />
-          <div />
-        </Form.Item>
-        <Form.Item name="status" label="운행상태" rules={[{ required: true }]}>
-          <Select>
-            <OptGroup label="운행상태">
-              {statusOptions.map((el) => (
-                <Option key={el} value={el}>
-                  {el}
-                </Option>
-              ))}
-            </OptGroup>
-          </Select>
-        </Form.Item>
-        <Form.Item name="name" label="차량명" rules={[{ required: true }]}>
-          <Input allowClear />
-        </Form.Item>
-        <Form.Item name="grade" label="차량등급" rules={[{ required: true }]}>
-          <Select>
-            <OptGroup label="차량등급">
-              {gradeOptions.map((el) => (
-                <Option key={el} value={el}>
-                  {el}
-                </Option>
-              ))}
-            </OptGroup>
-          </Select>
-        </Form.Item>
-        <Form.Item name="gear" label="변속방식" rules={[{ required: true }]}>
-          <Select>
-            <OptGroup label="변속방식">
-              {gearOptions.map((el) => (
-                <Option key={el} value={el}>
-                  {el}
-                </Option>
-              ))}
-            </OptGroup>
-          </Select>
-        </Form.Item>
-        <Form.Item name="fuel" label="사용연료" rules={[{ required: true }]}>
-          <Select>
-            <OptGroup label="사용연료">
-              {fuelOptions.map((el) => (
-                <Option key={el} value={el}>
-                  {el}
-                </Option>
-              ))}
-            </OptGroup>
-          </Select>
-        </Form.Item>
-        <Form.Item
-          name="distance"
-          label="주행거리"
-          rules={[{ required: true }]}
-        >
-          <InputNumber placeholder="km" />
-        </Form.Item>
-        <Form.Item
-          name="remainFuel"
-          label="잔여연료량"
-          rules={[{ required: true }]}
-        >
-          <InputNumber placeholder="%" />
-        </Form.Item>
-        <Form.Item label="차량연식" rules={[{ required: true }]}>
-          <Form.Item name={["birth", "year"]}>
-            <InputNumber placeholder="oo년" />
+        <div className="formBlock">
+          <Title level={5}>기본정보</Title>
+          <Form.Item name="staff" label="출고자" rules={[{ required: true }]}>
+            <Select>
+              <OptGroup label="출고자">{[].map((el) => {})}</OptGroup>
+            </Select>
+            <div />
           </Form.Item>
-          <Form.Item name={["birth", "month"]}>
-            <InputNumber placeholder="oo월" />
+          <Form.Item
+            name="status"
+            label="대여현황"
+            rules={[{ required: true }]}
+          >
+            <Select>
+              <OptGroup label="대여현황">{[].map((el) => {})}</OptGroup>
+            </Select>
+            <div />
           </Form.Item>
-        </Form.Item>
-        <Form.Item name="remark" label="메모">
-          <Input.TextArea allowClear />
-        </Form.Item>
+        </div>
+        <div className="formBlock">
+          <Title level={5}>임차인정보</Title>
+          <Form.Item
+            name="renterName"
+            label="성명"
+            rules={[{ required: true }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="renterBirthday"
+            label="생년월일"
+            rules={[{ required: true }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="renterHp"
+            label="휴대폰"
+            rules={[{ required: true }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item label="우편번호" name="postId">
+            <Input readOnly onClick={onClickPostSearch} value={postcode} />
+            <Button onClick={onClickPostSearch}>조회</Button>
+          </Form.Item>
+          <Form.Item label="주소" name="address">
+            <Input readOnly onClick={onClickPostSearch} value={address} />
+            <div /> {/* 값 렌더링 안되는 버그 */}
+          </Form.Item>
+          <Form.Item label="상세주소" name="detailAddress">
+            <Input />
+          </Form.Item>
+          <Form.Item label="면허번호" name="lisenceNumber">
+            <Input />
+          </Form.Item>
+          <Form.Item label="면허구분" name="lisenceType">
+            <Select>
+              <OptGroup label="출고자">
+                {lisenceTypeOptions.map((el) => (
+                  <Option key={el} value={el}>
+                    {el}
+                  </Option>
+                ))}
+              </OptGroup>
+            </Select>
+          </Form.Item>
+          <Form.Item label="유효기간" name="lisenceExpiry">
+            <Input />
+          </Form.Item>
+        </div>
+        <div className="formBlock">
+          <Title level={5}>운전자정보</Title>
+          <Form.Item
+            name="renterName"
+            label="성명"
+            rules={[{ required: true }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="renterBirthday"
+            label="생년월일"
+            rules={[{ required: true }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="renterHp"
+            label="휴대폰"
+            rules={[{ required: true }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item label="우편번호" name="postId">
+            <Input readOnly onClick={onClickPostSearch} value={postcode} />
+            <Button onClick={onClickPostSearch}>조회</Button>
+          </Form.Item>
+          <Form.Item label="주소" name="address">
+            <Input readOnly onClick={onClickPostSearch} value={address} />
+            <div /> {/* 값 렌더링 안되는 버그 */}
+          </Form.Item>
+          <Form.Item label="상세주소" name="detailAddress">
+            <Input />
+          </Form.Item>
+          <Form.Item label="면허번호" name="lisenceNumber">
+            <Input />
+          </Form.Item>
+          <Form.Item label="면허구분" name="lisenceType">
+            <Select>
+              <OptGroup label="출고자">
+                {lisenceTypeOptions.map((el) => (
+                  <Option key={el} value={el}>
+                    {el}
+                  </Option>
+                ))}
+              </OptGroup>
+            </Select>
+          </Form.Item>
+          <Form.Item label="유효기간" name="lisenceExpiry">
+            <Input />
+          </Form.Item>
+        </div>
+        <div className="formBlock">
+          <Title level={5}>계약정보</Title>
+          <Form.Item
+            name="startDate"
+            label="출발일시"
+            rules={[{ required: true }]}
+          >
+            <DatePicker showTime></DatePicker>
+          </Form.Item>
+          <Form.Item
+            name="arriveDate"
+            label="도착예정"
+            rules={[{ required: true }]}
+          >
+            <DatePicker showTime></DatePicker>
+          </Form.Item>
+          <Form.Item
+            name="useTime"
+            label="사용기간"
+            rules={[{ required: true }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="location"
+            label="배차장소"
+            rules={[{ required: true }]}
+          >
+            <Input />
+          </Form.Item>
+        </div>
+        <div className="formBlock">
+          <Title level={5}>차량정보</Title>
+          <Form.Item
+            name="carNumber"
+            label="차량번호"
+            rules={[{ required: true }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item name="carName" label="차종" rules={[{ required: true }]}>
+            <Input />
+          </Form.Item>
+          <Form.Item name="initKm" label="출발" rules={[{ required: true }]}>
+            <Input />
+            <Input />
+          </Form.Item>
+        </div>
+        <div className="formBlock">
+          <Title level={5}>대여요금</Title>
+          <Form.Item name="fee" label="적용요금" rules={[{ required: true }]}>
+            <Input />
+          </Form.Item>
+        </div>
         <SubmitButton label={submitLabel} />
       </>
     </FormBlock>

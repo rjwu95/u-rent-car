@@ -9,6 +9,11 @@ interface FormBlockProps {
 }
 
 const FormContainer = styled(Form)`
+  .formBlock {
+    border: solid grey 1px;
+    padding: 10px;
+    margin: 5px;
+  }
   .ant-form-item {
     .ant-form-item-control-input-content {
       display: flex;
