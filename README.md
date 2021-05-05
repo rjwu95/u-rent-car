@@ -10,6 +10,7 @@
 - [x] daum post code 이용해서 주소 조회하기
 - [x] car detail 페이지 만들기
 - [x] customer detail 페이지 만들기
+- [] contract 서버와 연결
 
 # Getting Started with Create React App
 
