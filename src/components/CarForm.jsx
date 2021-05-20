@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Form, Input, InputNumber, Select } from "antd";
-import { SubmitButton, FormBlock } from "../components";
+import { SubmitButton, FormBlock } from ".";
 const { Option, OptGroup } = Select;
 
 const statusOptions = [
@@ -29,17 +29,7 @@ const gradeOptions = [
 const gearOptions = ["수동", "오토"];
 const fuelOptions = ["휘발유", "경유", "LPG", "전기"];
 
-interface CarFormProps {
-  onFinish(value: any): void;
-  submitLabel?: string;
-  initNumber?: string;
-}
-
-export const CarForm: React.FC<CarFormProps> = ({
-  onFinish,
-  submitLabel = "등록",
-  initNumber,
-}) => {
+export function CarForm({ onFinish, submitLabel = "등록", initNumber }) {
   const [inputs, setInputs] = useState({
     number: initNumber || "",
   });
@@ -132,4 +122,4 @@ export const CarForm: React.FC<CarFormProps> = ({
       </>
     </FormBlock>
   );
-};
+}

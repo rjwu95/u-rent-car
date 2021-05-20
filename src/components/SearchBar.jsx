@@ -18,11 +18,7 @@ const SearchForm = styled(Form)`
   }
 `;
 
-interface SearchBarProps {
-  onFinish(values: any): void;
-}
-
-export const SearchBar: React.FC<SearchBarProps> = ({ onFinish }) => {
+export const SearchBar = ({ onFinish }) => {
   return (
     <SearchForm name="search-form" onFinish={onFinish}>
       <Row>

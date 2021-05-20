@@ -31,7 +31,7 @@ const dataSource = [
 ];
 export const Staff = () => {
   const onSearch = () => {};
-  const onDelete = (a: any) => {
+  const onDelete = (a) => {
     console.log(a);
   };
 
@@ -45,7 +45,7 @@ export const Staff = () => {
             dataIndex={el.dataIndex}
             key={el.dataIndex}
             {...(el.dataIndex === DELETE_KEY && {
-              render: (col, data: typeof dataSource[0]) => (
+              render: (col, data) => (
                 <Button onClick={() => onDelete(data.loginId)}>삭제</Button>
               ),
             })}

@@ -3,12 +3,7 @@ import { Select } from "antd";
 
 const { OptGroup, Option } = Select;
 
-interface CSelectProps {
-  label: string;
-  options: string[];
-}
-
-export const CSelect: React.FC<CSelectProps> = ({ label, options }) => {
+export const CSelect = ({ label, options }) => {
   return (
     <OptGroup label={label}>
       {options.map((el) => (

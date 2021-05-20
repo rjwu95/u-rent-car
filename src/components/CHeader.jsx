@@ -16,11 +16,7 @@ const HeaderRow = styled(Row)`
   }
 `;
 
-interface CHeaderProps {
-  setVisible: Dispatch<SetStateAction<boolean>>;
-}
-
-export const CHeader: React.FC<CHeaderProps> = ({ setVisible }) => {
+export const CHeader = ({ setVisible }) => {
   return (
     <Header>
       <HeaderRow>

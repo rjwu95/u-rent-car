@@ -8,15 +8,7 @@ const RegisterContainer = styled.div`
   justify-content: flex-end;
 `;
 
-interface RegisterButtonProps {
-  label: string;
-  link: string;
-}
-
-export const RegisterButton: React.FC<RegisterButtonProps> = ({
-  label,
-  link,
-}) => {
+export const RegisterButton = ({ label, link }) => {
   return (
     <RegisterContainer>
       <Button>

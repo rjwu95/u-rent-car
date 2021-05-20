@@ -2,7 +2,7 @@ import { Form, Input } from "antd";
 import { FormBlock, SubmitButton } from "../components";
 
 export const StaffRegister = () => {
-  const onFinish = (a: any) => {
+  const onFinish = (a) => {
     console.log(a);
   };
 

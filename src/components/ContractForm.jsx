@@ -1,14 +1,6 @@
 import React, { useState } from "react";
-import {
-  Button,
-  DatePicker,
-  Form,
-  Input,
-  InputNumber,
-  Select,
-  Typography,
-} from "antd";
-import { SubmitButton, FormBlock } from "../components";
+import { Button, DatePicker, Form, Input, Select, Typography } from "antd";
+import { SubmitButton, FormBlock } from ".";
 import usePostcode from "../hooks/usePostcode";
 const { Option, OptGroup } = Select;
 const { Title } = Typography;
@@ -23,24 +15,24 @@ const lisenceTypeOptions = [
   "2종장애인",
 ];
 
-interface ContractFormProps {
-  onFinish(value: any): void;
-  submitLabel?: string;
-  initNumber?: string;
-}
-
-export const ContractForm: React.FC<ContractFormProps> = ({
+export function ContractForm({
   onFinish,
   submitLabel = "등록",
   initNumber,
-}) => {
+  info = null,
+}) {
   const { address, postcode, onClickPostSearch } = usePostcode();
   return (
     <FormBlock onFinish={onFinish}>
       <>
         <div className="formBlock">
           <Title level={5}>기본정보</Title>
-          <Form.Item name="staff" label="출고자" rules={[{ required: true }]}>
+          <Form.Item
+            name="staff"
+            value={info?.outerId}
+            label="출고자"
+            rules={[{ required: true }]}
+          >
             <Select>
               <OptGroup label="출고자">{[].map((el) => {})}</OptGroup>
             </Select>
@@ -219,4 +211,4 @@ export const ContractForm: React.FC<ContractFormProps> = ({
       </>
     </FormBlock>
   );
-};
+}

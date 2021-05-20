@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Layout } from "antd";
-import { CDrawer, CHeader } from "../components";
+import { CDrawer, CHeader } from ".";
 import styled from "styled-components";
 
 const { Content } = Layout;
@@ -14,11 +14,7 @@ const ContentBlock = styled(Content)`
   }
 `;
 
-interface CLayoutProps {
-  children: JSX.Element;
-}
-
-export const CLayout: React.FC<CLayoutProps> = ({ children }) => {
+export const CLayout = ({ children }) => {
   const [visible, setVisible] = useState(false);
   return (
     <Layout>

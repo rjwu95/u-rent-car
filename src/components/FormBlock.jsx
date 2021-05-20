@@ -3,11 +3,6 @@ import { Form } from "antd";
 import { formLayout, onFinishFailed, validateMessages } from "../utils/form";
 import styled from "styled-components";
 
-interface FormBlockProps {
-  children: JSX.Element;
-  onFinish(values: any): void;
-}
-
 const FormContainer = styled(Form)`
   .formBlock {
     border: solid grey 1px;
@@ -28,7 +23,7 @@ const FormContainer = styled(Form)`
   }
 `;
 
-export const FormBlock: React.FC<FormBlockProps> = ({ children, onFinish }) => {
+export const FormBlock = ({ children, onFinish }) => {
   return (
     <FormContainer
       {...formLayout}

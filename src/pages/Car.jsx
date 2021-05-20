@@ -47,20 +47,8 @@ const columns = [
   },
 ];
 
-type CarData = {
-  key: number;
-  number: string;
-  name: string;
-  grade: string;
-  fuel: string;
-  gear: string;
-  distance: string;
-  remainFuel: string;
-  status: string;
-};
-
-export const Car: React.FC<RouteComponentProps> = ({ history }) => {
-  const dataSource: CarData[] = [
+export const Car = ({ history }) => {
+  const dataSource = [
     {
       key: 1,
       number: "24하2522",
@@ -101,7 +89,7 @@ export const Car: React.FC<RouteComponentProps> = ({ history }) => {
   return (
     <>
       <SearchBar onFinish={onSearch} />
-      <Table<typeof dataSource[0]>
+      <Table
         dataSource={dataSource}
         columns={columns}
         onRow={(record, rowIndex) => {

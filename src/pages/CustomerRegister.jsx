@@ -2,7 +2,7 @@ import React from "react";
 import { CustomerForm } from "../components";
 
 export const CustomerRegister = () => {
-  const onFinish = (a: any) => {
+  const onFinish = (a) => {
     console.log(a);
   };
 

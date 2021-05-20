@@ -32,13 +32,13 @@ const dataSource = [
     address: "서울시 땡땡구 땡땡로 12-12",
   },
 ];
-export const Customer: React.FC<RouteComponentProps> = ({ history }) => {
+export const Customer = ({ history }) => {
   const onSearch = () => {};
 
   return (
     <>
       <SearchBar onFinish={onSearch} />
-      <Table<typeof dataSource[0]>
+      <Table
         dataSource={dataSource}
         columns={columns}
         onRow={(record, rowIndex) => {

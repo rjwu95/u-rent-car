@@ -11,7 +11,7 @@ const columns = [
     title: "등록일",
     dataIndex: "createdAt",
     key: "createdAt",
-    render: function (text: any, row: any, index: any) {
+    render: function (text, row, index) {
       return new Date(row.createdAt).toLocaleString("ko");
     },
   },
@@ -19,7 +19,7 @@ const columns = [
     title: "차량번호",
     dataIndex: "car.number",
     key: "car.number",
-    render: function (text: any, row: any, index: any) {
+    render: function (text, row, index) {
       return row.car.number;
     },
   },
@@ -27,7 +27,7 @@ const columns = [
     title: "차량명",
     dataIndex: "car.name",
     key: "car.name",
-    render: function (text: any, row: any, index: any) {
+    render: function (text, row, index) {
       return row.car.name;
     },
   },
@@ -35,7 +35,7 @@ const columns = [
     title: "임차인",
     dataIndex: "renter.name",
     key: "renter.name",
-    render: function (text: any, row: any, index: any) {
+    render: function (text, row, index) {
       return row.renter.name;
     },
   },
@@ -43,7 +43,7 @@ const columns = [
     title: "생년월일",
     dataIndex: "renter.birthday",
     key: "renter.birthday",
-    render: function (text: any, row: any, index: any) {
+    render: function (text, row, index) {
       return row.renter.birthday;
     },
   },
@@ -51,7 +51,7 @@ const columns = [
     title: "연락처",
     dataIndex: "renter.hp",
     key: "renter.hp",
-    render: function (text: any, row: any, index: any) {
+    render: function (text, row, index) {
       return row.renter.hp;
     },
   },
@@ -59,7 +59,7 @@ const columns = [
     title: "대여일시",
     dataIndex: "departure",
     key: "departure",
-    render: function (text: any, row: any, index: any) {
+    render: function (text, row, index) {
       return new Date(row.departure).toLocaleString("ko");
     },
   },
@@ -67,7 +67,7 @@ const columns = [
     title: "반납(예정)일시",
     dataIndex: "arrive",
     key: "arrive",
-    render: function (text: any, row: any, index: any) {
+    render: function (text, row, index) {
       return new Date(row.arrive).toLocaleString("ko");
     },
   },
@@ -75,31 +75,18 @@ const columns = [
     title: "출고자",
     dataIndex: "outer.name",
     key: "outer.name",
-    render: function (text: any, row: any, index: any) {
+    render: function (text, row, index) {
       return row.outer.name;
     },
   },
 ];
 
-type ContractData = {
-  key: number;
-  date: string;
-  carNumber: string;
-  carName: string;
-  renter: string;
-  renderBirthday: string;
-  ph: string;
-  rentDate: string;
-  comeBackDate: string;
-  staff: string;
-};
-
-export const Contract: React.FC<RouteComponentProps> = ({ history }) => {
+export const Contract = ({ history }) => {
   const dispatch = useAppDispatch();
   const { entities, loading } = useAppSelector((state) => state.contract);
 
   useEffect(() => {
-    dispatch(fetchContracts() as any);
+    dispatch(fetchContracts());
   }, []);
 
   const onSearch = () => {};
@@ -108,7 +95,7 @@ export const Contract: React.FC<RouteComponentProps> = ({ history }) => {
   return (
     <>
       <SearchBar onFinish={onSearch} />
-      <Table<any>
+      <Table
         dataSource={entities}
         columns={columns}
         onRow={(record, rowIndex) => {

@@ -1,17 +1,9 @@
 import { Button, Form, Input, InputNumber } from "antd";
 import { useState } from "react";
-import { FormBlock, SubmitButton } from "../components";
+import { FormBlock, SubmitButton } from ".";
 import usePostcode from "../hooks/usePostcode";
 
-interface CustomerFormProps {
-  onFinish(value: any): void;
-  submitLabel?: string;
-}
-
-export const CustomerForm = ({
-  onFinish,
-  submitLabel = "등록",
-}: CustomerFormProps) => {
+export const CustomerForm = ({ onFinish, submitLabel = "등록" }) => {
   const { address, postcode, onClickPostSearch } = usePostcode();
   return (
     <FormBlock onFinish={onFinish}>
