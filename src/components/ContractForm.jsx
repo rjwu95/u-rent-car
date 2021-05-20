@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button, DatePicker, Form, Input, Select, Typography } from "antd";
 import { SubmitButton, FormBlock } from ".";
 import usePostcode from "../hooks/usePostcode";
@@ -15,7 +15,6 @@ const lisenceTypeOptions = [
   "1종장애인",
   "2종장애인",
 ];
-const dateFormat = "YYYY-MM-DD hh:mm:ss";
 
 export function ContractForm({ onFinish, initNumber, info = null }) {
   console.log(info);
