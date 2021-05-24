@@ -34,7 +34,6 @@ export function CarForm({ onFinish, submitLabel = "등록", initNumber, info }) 
     number: initNumber || "",
     distance: 0,
   });
-  console.log(info);
   const onChangeInput = (e, field) => {
     setInputs((prev) => ({
       ...prev,
@@ -58,7 +57,6 @@ export function CarForm({ onFinish, submitLabel = "등록", initNumber, info }) 
               setInputs((pre) => ({ ...pre, number: e.target.value }))
             }
           />
-          <div />
         </Form.Item>
         <Form.Item name="status" label="운행상태" rules={[{ required: true }]}>
           <Select value={info?.status}>
@@ -70,11 +68,9 @@ export function CarForm({ onFinish, submitLabel = "등록", initNumber, info }) 
               ))}
             </OptGroup>
           </Select>
-          <div></div>
         </Form.Item>
         <Form.Item name="name" label="차량명" rules={[{ required: true }]}>
           <Input allowClear value={info?.name} />
-          <div></div>
         </Form.Item>
         <Form.Item name="grade" label="차량등급" rules={[{ required: true }]}>
           <Select value={info?.grade} disabled={!!info}>
@@ -86,7 +82,6 @@ export function CarForm({ onFinish, submitLabel = "등록", initNumber, info }) 
               ))}
             </OptGroup>
           </Select>
-          <div></div>
         </Form.Item>
         <Form.Item name="gear" label="변속방식" rules={[{ required: true }]}>
           <Select value={info?.gear} disabled={!!info}>
@@ -98,7 +93,6 @@ export function CarForm({ onFinish, submitLabel = "등록", initNumber, info }) 
               ))}
             </OptGroup>
           </Select>
-          <div></div>
         </Form.Item>
         <Form.Item name="fuel" label="사용연료" rules={[{ required: true }]}>
           <Select value={info?.fuel} disabled={!!info}>
@@ -110,7 +104,6 @@ export function CarForm({ onFinish, submitLabel = "등록", initNumber, info }) 
               ))}
             </OptGroup>
           </Select>
-          <div> </div>
         </Form.Item>
         <Form.Item
           name="distance"
@@ -122,7 +115,6 @@ export function CarForm({ onFinish, submitLabel = "등록", initNumber, info }) 
             defaultValue={info?.distance}
             onChange={(e) => onChangeInput(e, "distance")}
           />
-          <div></div>
         </Form.Item>
         <Form.Item
           name="remainFuel"
@@ -134,21 +126,17 @@ export function CarForm({ onFinish, submitLabel = "등록", initNumber, info }) 
             defaultValue={info?.remainFuel}
             onChange={(e) => onChangeInput(e, "remainFuel")}
           />
-          <div></div>
         </Form.Item>
         <Form.Item label="차량연식" rules={[{ required: true }]}>
           <Form.Item name={["birth", "year"]}>
             <InputNumber placeholder="oo년" value={info && birthYear} />
-            <div></div>
           </Form.Item>
           <Form.Item name={["birth", "month"]}>
             <InputNumber placeholder="oo월" value={info && birthMonth} />
-            <div></div>
           </Form.Item>
         </Form.Item>
         <Form.Item name="remark" label="메모">
           <Input.TextArea allowClear />
-          <div></div>
         </Form.Item>
         <SubmitButton label={submitLabel} />
       </>

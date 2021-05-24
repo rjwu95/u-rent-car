@@ -23,9 +23,10 @@ const FormContainer = styled(Form)`
   }
 `;
 
-export const FormBlock = ({ children, onFinish }) => {
+export const FormBlock = ({ children, onFinish, ...props }) => {
   return (
     <FormContainer
+      {...props}
       {...formLayout}
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}

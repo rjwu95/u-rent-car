@@ -6,9 +6,7 @@ import { CarForm } from "../components";
 export const CarDetail = () => {
   const { id } = useParams();
   const [info, setInfo] = useState(null);
-  const onFinish = (a) => {
-    console.log(a);
-  };
+  const onFinish = (a) => {};
   useEffect(() => {
     carAPI.getCar(id).then(({ data }) => setInfo(data));
   }, []);

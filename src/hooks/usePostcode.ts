@@ -9,10 +9,6 @@ const usePostcode = () => {
     new daum.Postcode({
       oncomplete: (data: any) => {
         const { roadAddress, zonecode } = data;
-        console.log(
-          "🚀 ~ file: CustomerRegister.tsx ~ line 16 ~ onClickPostSearch ~ roadAddress",
-          roadAddress
-        );
         setAddress(roadAddress);
         setPostcode(zonecode);
       },

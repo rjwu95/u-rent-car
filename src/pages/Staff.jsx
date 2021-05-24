@@ -31,9 +31,7 @@ const dataSource = [
 ];
 export const Staff = () => {
   const onSearch = () => {};
-  const onDelete = (a) => {
-    console.log(a);
-  };
+  const onDelete = (a) => {};
 
   return (
     <>
