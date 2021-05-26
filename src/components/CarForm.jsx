@@ -31,7 +31,6 @@ const gearOptions = ["수동", "오토"];
 const fuelOptions = ["휘발유", "경유", "LPG", "전기"];
 
 export function CarForm({ onFinish, submitLabel = "등록", info }) {
-  console.log(info);
   return (
     <FormBlock
       onFinish={onFinish}

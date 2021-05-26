@@ -6,51 +6,55 @@ import { Table } from "antd";
 import { useAppDispatch, useAppSelector } from "../hooks/useRedux";
 import { fetchContracts } from "../reducers/contract";
 
+function convertToKoDate(string) {
+  return new Date(string).toLocaleString("ko");
+}
+
 const columns = [
   {
     title: "등록일",
     dataIndex: "createdAt",
     key: "createdAt",
     render: function (text, row, index) {
-      return new Date(row.createdAt).toLocaleString("ko");
+      return convertToKoDate(row.createdAt);
     },
   },
   {
     title: "차량번호",
-    dataIndex: "car.number",
-    key: "car.number",
+    dataIndex: "number",
+    key: "number",
     render: function (text, row, index) {
       return row.car.number;
     },
   },
   {
     title: "차량명",
-    dataIndex: "car.name",
-    key: "car.name",
+    dataIndex: "name",
+    key: "name",
     render: function (text, row, index) {
       return row.car.name;
     },
   },
   {
     title: "임차인",
-    dataIndex: "renter.name",
-    key: "renter.name",
+    dataIndex: "renterName",
+    key: "renterName",
     render: function (text, row, index) {
       return row.renter.name;
     },
   },
   {
     title: "생년월일",
-    dataIndex: "renter.birthday",
-    key: "renter.birthday",
+    dataIndex: "renterBirthday",
+    key: "renterBirthday",
     render: function (text, row, index) {
       return row.renter.birthday;
     },
   },
   {
     title: "연락처",
-    dataIndex: "renter.hp",
-    key: "renter.hp",
+    dataIndex: "renterHp",
+    key: "renterHp",
     render: function (text, row, index) {
       return row.renter.hp;
     },
@@ -60,7 +64,7 @@ const columns = [
     dataIndex: "departure",
     key: "departure",
     render: function (text, row, index) {
-      return new Date(row.departure).toLocaleString("ko");
+      return convertToKoDate(row.departure);
     },
   },
   {
@@ -68,13 +72,13 @@ const columns = [
     dataIndex: "arrive",
     key: "arrive",
     render: function (text, row, index) {
-      return new Date(row.arrive).toLocaleString("ko");
+      return convertToKoDate(row.arrive);
     },
   },
   {
     title: "출고자",
-    dataIndex: "outer.name",
-    key: "outer.name",
+    dataIndex: "outerName",
+    key: "outerName",
     render: function (text, row, index) {
       return row.outer.name;
     },

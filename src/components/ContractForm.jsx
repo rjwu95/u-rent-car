@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Button, DatePicker, Form, Input, Select, Typography } from "antd";
 import { SubmitButton, FormBlock } from ".";
 import usePostcode from "../hooks/usePostcode";
@@ -15,6 +15,13 @@ export function ContractForm({ onFinish, info = null }) {
   useEffect(() => {
     staffAPI.getStaffs().then(({ data }) => setStaffs(data));
   }, []);
+  const useTime = useMemo(() => {
+    return (
+      (new Date(info.arrive).getTime() - new Date(info.departure).getTime()) /
+        (1000 * 60 * 60) +
+      "시간"
+    );
+  }, [info]);
   return (
     <FormBlock
       onFinish={onFinish}
@@ -61,7 +68,7 @@ export function ContractForm({ onFinish, info = null }) {
         <div className="formBlock">
           <Title level={5}>임차인정보</Title>
           <Form.Item name={["renter", "name"]} label="성명">
-            <Input />
+            <Input disabled={!!info} />
           </Form.Item>
           <Form.Item name={["renter", "birthday"]} label="생년월일">
             <Input disabled={!!info} />
@@ -106,7 +113,7 @@ export function ContractForm({ onFinish, info = null }) {
             </Select>
           </Form.Item>
           <Form.Item label="유효기간" name={["renter", "licenseDate"]}>
-            <DatePicker value={moment(info.renter.licenseDate)}></DatePicker>
+            <DatePicker disabled={!!info}></DatePicker>
           </Form.Item>
         </div>
         <div className="formBlock">
@@ -157,7 +164,7 @@ export function ContractForm({ onFinish, info = null }) {
             </Select>
           </Form.Item>
           <Form.Item label="유효기간" name={["driver", "licenseDate"]}>
-            <DatePicker></DatePicker>
+            <DatePicker disabled={!!info}></DatePicker>
           </Form.Item>
         </div>
         <div className="formBlock">
@@ -169,16 +176,7 @@ export function ContractForm({ onFinish, info = null }) {
             <DatePicker showTime disabled={!!info}></DatePicker>
           </Form.Item>
           <Form.Item name="useTime" label="사용기간">
-            <Input
-              disabled={!!info}
-              readOnly
-              value={
-                (new Date(info.arrive).getTime() -
-                  new Date(info.departure).getTime()) /
-                  (1000 * 60 * 60) +
-                "시간"
-              }
-            />
+            <div>{useTime}</div>
           </Form.Item>
           <Form.Item name="giveLocation" label="배차장소">
             <Input disabled={!!info} />
