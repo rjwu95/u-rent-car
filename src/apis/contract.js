@@ -8,6 +8,6 @@ export function getContract(id) {
   return axios.get(`/contracts/${id}`);
 }
 
-export function updateContract(info, id) {
-  return axios.post(`/contracts/update`, { test: 1 });
+export function updateContract(info) {
+  return axios.patch(`/contracts`, info);
 }

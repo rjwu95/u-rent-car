@@ -1,16 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import * as carAPI from "../apis/car";
 import { CarForm } from "../components";
 
-export const CarDetail = () => {
+export const CarDetail = ({ history }) => {
   const { id } = useParams();
   const [info, setInfo] = useState(null);
-  const onFinish = (a) => {};
   useEffect(() => {
     carAPI.getCar(id).then(({ data }) => setInfo(data));
   }, []);
+  const onFinish = useCallback(
+    (newInfo) => {
+      carAPI
+        .updateCar({ ...info, ...newInfo })
+        .then(() => {
+          alert("수정했습니다");
+          history.goBack();
+        })
+        .catch(() => alert("저장을 실패했습니다"));
+    },
+    [info, history]
+  );
 
+  if (!info) return <div>로딩중</div>;
   return (
     <CarForm
       onFinish={onFinish}

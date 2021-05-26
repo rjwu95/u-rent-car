@@ -16,7 +16,22 @@ export function ContractForm({ onFinish, info = null }) {
     staffAPI.getStaffs().then(({ data }) => setStaffs(data));
   }, []);
   return (
-    <FormBlock onFinish={onFinish} initialValues={{ ...info }}>
+    <FormBlock
+      onFinish={onFinish}
+      initialValues={{
+        ...info,
+        arrive: moment(info.arrive),
+        departure: moment(info.departure),
+        driver: {
+          ...info.driver,
+          licenseDate: moment(info.driver.licenseDate),
+        },
+        renter: {
+          ...info.renter,
+          licenseDate: moment(info.renter.licenseDate),
+        },
+      }}
+    >
       <>
         <div className="formBlock">
           <Title level={5}>기본정보</Title>
@@ -91,7 +106,7 @@ export function ContractForm({ onFinish, info = null }) {
             </Select>
           </Form.Item>
           <Form.Item label="유효기간" name={["renter", "licenseDate"]}>
-            {/* <DatePicker value={moment(info.renter.licenseDate)}></DatePicker> */}
+            <DatePicker value={moment(info.renter.licenseDate)}></DatePicker>
           </Form.Item>
         </div>
         <div className="formBlock">
@@ -142,23 +157,16 @@ export function ContractForm({ onFinish, info = null }) {
             </Select>
           </Form.Item>
           <Form.Item label="유효기간" name={["driver", "licenseDate"]}>
-            {/* <DatePicker></DatePicker> */}
+            <DatePicker></DatePicker>
           </Form.Item>
         </div>
         <div className="formBlock">
           <Title level={5}>계약정보</Title>
-          <Form.Item
-            name="departure"
-            label="출발일시"
-            initialValue={moment(info.departure)}
-          >
-            {/* <DatePicker showTime disabled={!!info}></DatePicker> */}
+          <Form.Item name="departure" label="출발일시">
+            <DatePicker showTime disabled={!!info}></DatePicker>
           </Form.Item>
           <Form.Item name="arrive" label="도착예정">
-            {/* <DatePicker
-              showTime
-              disabled={!!info}
-            ></DatePicker> */}
+            <DatePicker showTime disabled={!!info}></DatePicker>
           </Form.Item>
           <Form.Item name="useTime" label="사용기간">
             <Input
