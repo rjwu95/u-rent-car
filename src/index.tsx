@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./router/AppRouter";
+import App from "./shared/router/AppRouter";
 import "antd/dist/antd.css";
-import { store } from "./store";
+import { store } from "./shared/store";
 import { Provider } from "react-redux";
 import axios from "axios";
 
