@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { SearchBar } from "../../shared/components";
 import { RegisterButton } from "../../shared/components/RegisterButton";
 import { Table } from "antd";
-import { useAppDispatch, useAppSelector } from "../../shared/hooks/useRedux";
 import { fetchContracts } from "../reducer";
+import { useDispatch, useSelector } from "react-redux";
 
 function convertToKoDate(string) {
   return new Date(string).toLocaleString("ko");
@@ -85,8 +85,8 @@ const columns = [
 ];
 
 export const Contract = ({ history }) => {
-  const dispatch = useAppDispatch();
-  const { entities, loading } = useAppSelector((state) => state.contract);
+  const dispatch = useDispatch();
+  const { entities, loading } = useSelector((state) => state.contract);
 
   useEffect(() => {
     dispatch(fetchContracts());
@@ -99,7 +99,7 @@ export const Contract = ({ history }) => {
     <>
       <SearchBar onFinish={onSearch} />
       <Table
-        dataSource={entities}
+        dataSource={entities.map((el) => ({ ...el, key: el.id }))}
         columns={columns}
         onRow={(record, rowIndex) => {
           return {
