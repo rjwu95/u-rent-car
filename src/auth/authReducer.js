@@ -16,6 +16,6 @@ export const fetchMe = createAsyncThunk("auths/getMe", async () => {
 
 export function logoutReducer(state) {
   state.loading = "idle";
-  localStorage.removeItem("token");
+  sessionStorage.removeItem("token");
   state.entities = {};
 }

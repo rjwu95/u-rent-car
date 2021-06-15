@@ -6,7 +6,7 @@ export function login(info) {
   return axios.post("/auth/login", info);
 }
 export function getMe() {
-  const token = localStorage.getItem("token");
+  const token = sessionStorage.getItem("token");
   if (!token) {
     store.dispatch(logout());
     return Promise.reject("토큰 없음");

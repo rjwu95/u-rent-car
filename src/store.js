@@ -19,7 +19,7 @@ export const authSlice = createSlice({
     },
     [fetchLogin.fulfilled]: (state, action) => {
       state.loading = "fulfilled";
-      localStorage.setItem("token", action.payload.token);
+      sessionStorage.setItem("token", action.payload.token);
       state.entities = action.payload;
     },
     [fetchMe.fulfilled]: (state, action) => {
