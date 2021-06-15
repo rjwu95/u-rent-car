@@ -1,6 +1,9 @@
 import React from "react";
 import { Table } from "antd";
 import { SearchBar, RegisterButton } from "../../shared/components";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { fetchCustomers } from "../reducer";
 
 const columns = [
   {
@@ -21,23 +24,22 @@ const columns = [
   },
 ];
 
-const dataSource = [
-  {
-    key: 1,
-    name: "유건",
-    birth: "950714-1212121",
-    hp: "010-5154-9028",
-    address: "서울시 땡땡구 땡땡로 12-12",
-  },
-];
 export const Customer = ({ history }) => {
+  const dispatch = useDispatch();
+  const { entities, loading } = useSelector((state) => state.customer);
+
   const onSearch = () => {};
 
+  useEffect(() => {
+    dispatch(fetchCustomers());
+  }, [dispatch]);
+
+  if (loading === "pending") return <div>...loading</div>;
   return (
     <>
       <SearchBar onFinish={onSearch} />
       <Table
-        dataSource={dataSource}
+        dataSource={entities.map((el, i) => ({ ...el, key: i }))}
         columns={columns}
         onRow={(record, rowIndex) => {
           return {

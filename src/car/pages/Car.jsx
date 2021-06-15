@@ -2,6 +2,9 @@ import React from "react";
 import { SearchBar } from "../../shared/components";
 import { RegisterButton } from "../../shared/components/RegisterButton";
 import { Table } from "antd";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCars } from "../reducer";
 
 const columns = [
   {
@@ -47,49 +50,21 @@ const columns = [
 ];
 
 export const Car = ({ history }) => {
-  const dataSource = [
-    {
-      key: 1,
-      number: "24하2522",
-      name: "그랜저",
-      grade: "국산차",
-      fuel: "가솔린",
-      gear: "오토",
-      distance: "200",
-      remainFuel: "20",
-      status: "대여중",
-    },
-    {
-      key: 2,
-      number: "24하2522",
-      name: "그랜저",
-      grade: "국산차",
-      fuel: "가솔린",
-      gear: "오토",
-      distance: "200",
-      remainFuel: "20",
-      status: "대여중",
-    },
-    {
-      key: 3,
-      number: "24하2522",
-      name: "그랜저",
-      grade: "국산차",
-      fuel: "가솔린",
-      gear: "오토",
-      distance: "200",
-      remainFuel: "20",
-      status: "대여중",
-    },
-  ];
+  const dispatch = useDispatch();
+  const { entities, loading } = useSelector((state) => state.car);
+
+  useEffect(() => {
+    dispatch(fetchCars());
+  }, [dispatch]);
 
   const onSearch = () => {};
 
+  if (loading === "pending") return <div>...loading</div>;
   return (
     <>
       <SearchBar onFinish={onSearch} />
       <Table
-        dataSource={dataSource}
+        dataSource={entities}
         columns={columns}
         onRow={(record, rowIndex) => {
           return {

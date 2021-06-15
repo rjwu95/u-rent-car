@@ -2,10 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./shared/routers/AppRouter";
 import "antd/dist/antd.css";
-import { store } from "./store";
+import { store, logout } from "./shared/store";
 import { Provider } from "react-redux";
 import axios from "axios";
-import { logout } from "./store";
 
 axios.defaults.baseURL = "http://localhost:3001/api";
 axios.interceptors.request.use((req) => {
@@ -23,8 +22,6 @@ axios.interceptors.response.use(
     }
   }
 );
-var a = store.getState();
-console.log(a);
 
 ReactDOM.render(
   <React.StrictMode>

@@ -2,7 +2,7 @@ import { Layout, Button, Row, Typography } from "antd";
 import { MenuOutlined } from "@ant-design/icons";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { logout } from "../../store";
+import { logout } from "../../shared/store";
 import { useDispatch } from "react-redux";
 
 const { Header } = Layout;

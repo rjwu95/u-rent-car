@@ -23,12 +23,5 @@ export const CarDetail = ({ history }) => {
   );
 
   if (!info) return <div>로딩중</div>;
-  return (
-    <CarForm
-      onFinish={onFinish}
-      submitLabel="저장"
-      initNumber="12하1221"
-      info={info}
-    />
-  );
+  return <CarForm onFinish={onFinish} submitLabel="저장" info={info} />;
 };

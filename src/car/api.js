@@ -7,3 +7,7 @@ export function getCar(id) {
 export function updateCar(info) {
   return axios.patch("/cars", info);
 }
+
+export function getCars() {
+  return axios.get("/cars");
+}

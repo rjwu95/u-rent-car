@@ -1,6 +1,5 @@
 import axios from "axios";
-import { store } from "../store";
-import { logout } from "../store";
+import { store, logout } from "../shared/store";
 
 export function login(info) {
   return axios.post("/auth/login", info);

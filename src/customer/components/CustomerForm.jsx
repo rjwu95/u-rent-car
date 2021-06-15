@@ -3,7 +3,7 @@ import { Button, Form, Input, InputNumber } from "antd";
 import { FormBlock, SubmitButton } from "../../shared/components";
 import usePostcode from "../../shared/hooks/usePostcode";
 
-export const CustomerForm = ({ onFinish, submitLabel = "등록" }) => {
+export const CustomerForm = ({ onFinish, submitLabel = "등록", info }) => {
   const { address, postcode, onClickPostSearch } = usePostcode();
   return (
     <FormBlock onFinish={onFinish}>
