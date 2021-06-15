@@ -5,9 +5,9 @@ const usePostcode = () => {
   const [postcode, setPostcode] = useState("");
 
   const onClickPostSearch = () => {
-    const daum = (window as any).daum;
+    const daum = window.daum;
     new daum.Postcode({
-      oncomplete: (data: any) => {
+      oncomplete: (data) => {
         const { roadAddress, zonecode } = data;
         setAddress(roadAddress);
         setPostcode(zonecode);

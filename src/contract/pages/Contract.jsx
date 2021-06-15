@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { SearchBar } from "../../shared/components";
 import { RegisterButton } from "../../shared/components/RegisterButton";
 import { Table } from "antd";
-import { fetchContracts } from "../reducer";
+import { fetchContracts } from "../contractReducer";
 import { useDispatch, useSelector } from "react-redux";
 
 function convertToKoDate(string) {

@@ -2,6 +2,8 @@ import { Layout, Button, Row, Typography } from "antd";
 import { MenuOutlined } from "@ant-design/icons";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { logout } from "../../store";
+import { useDispatch } from "react-redux";
 
 const { Header } = Layout;
 
@@ -16,6 +18,7 @@ const HeaderRow = styled(Row)`
 `;
 
 export const CHeader = ({ setVisible }) => {
+  const dispatch = useDispatch();
   return (
     <Header>
       <HeaderRow>
@@ -29,7 +32,7 @@ export const CHeader = ({ setVisible }) => {
         <Typography.Title>
           <Link to="/"> 유렌트카</Link>
         </Typography.Title>
-        <Button>로그아웃</Button>
+        <Button onClick={() => dispatch(logout())}>로그아웃</Button>
       </HeaderRow>
     </Header>
   );
