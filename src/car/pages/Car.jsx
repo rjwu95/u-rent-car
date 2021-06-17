@@ -66,9 +66,10 @@ export const Car = ({ history }) => {
       <Table
         dataSource={entities}
         columns={columns}
+        rowKey={(record) => record.id}
         onRow={(record, rowIndex) => {
           return {
-            onClick: (event) => history.push(`/car/detail/${record.key}`),
+            onClick: (event) => history.push(`/car/detail/${record.id}`),
           };
         }}
       />

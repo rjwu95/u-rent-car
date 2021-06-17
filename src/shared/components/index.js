@@ -6,3 +6,4 @@ export * from "./CSelect";
 export * from "./FormBlock";
 export * from "./SubmitButton";
 export * from "./RegisterButton";
+export * from "./FormDatePicker";

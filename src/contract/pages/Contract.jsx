@@ -99,8 +99,9 @@ export const Contract = ({ history }) => {
     <>
       <SearchBar onFinish={onSearch} />
       <Table
-        dataSource={entities.map((el) => ({ ...el, key: el.id }))}
+        dataSource={entities}
         columns={columns}
+        rowKey={(record) => record.id}
         onRow={(record, rowIndex) => {
           return {
             onClick: (event) => history.push(`/contract/detail/${record.id}`),

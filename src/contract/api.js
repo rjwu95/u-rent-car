@@ -11,3 +11,7 @@ export function getContract(id) {
 export function updateContract(info) {
   return axios.patch(`/contracts`, info);
 }
+
+export function registerContract(info) {
+  return axios.post("/contracts", info);
+}

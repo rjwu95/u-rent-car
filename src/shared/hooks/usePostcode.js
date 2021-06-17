@@ -14,7 +14,7 @@ const usePostcode = () => {
       },
     }).open();
   };
-  return { address, postcode, onClickPostSearch };
+  return [address, postcode, onClickPostSearch];
 };
 
 export default usePostcode;

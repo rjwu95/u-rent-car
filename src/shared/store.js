@@ -2,6 +2,7 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 import { fetchCars } from "../car/reducer";
 import { fetchLogin, fetchMe, logoutReducer } from "../auth/authReducer";
 import { fetchCustomers } from "../customer/reducer";
+import { fetchStaffs } from "../staff/reducer";
 import contract from "../contract/contractReducer";
 
 export const authSlice = createSlice({
@@ -29,7 +30,6 @@ export const authSlice = createSlice({
     },
   },
 });
-
 export const car = createSlice({
   name: "car",
   initialState: {
@@ -68,6 +68,25 @@ export const customer = createSlice({
     },
   },
 });
+export const staff = createSlice({
+  name: "staff",
+  initialState: {
+    entities: [],
+    loading: "idle",
+  },
+  reducers: {},
+  extraReducers: {
+    [fetchStaffs.pending]: (state) => {
+      if (state.loading === "idle") {
+        state.loading = "pending";
+      }
+    },
+    [fetchStaffs.fulfilled]: (state, action) => {
+      state.loading = "idle";
+      state.entities = action.payload;
+    },
+  },
+});
 
 export const { logout } = authSlice.reducer;
 
@@ -77,5 +96,6 @@ export const store = configureStore({
     auth: authSlice.reducer,
     car: car.reducer,
     customer: customer.reducer,
+    staff: staff.reducer,
   },
 });

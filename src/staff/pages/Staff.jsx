@@ -2,6 +2,9 @@ import React from "react";
 import { Button, Table } from "antd";
 import { SearchBar, RegisterButton } from "../../shared/components";
 import { TableBlock } from "../../shared/components/TableBlock";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { fetchStaffs } from "../reducer";
 
 const { Column } = Table;
 
@@ -22,21 +25,21 @@ const columns = [
   },
 ];
 
-const dataSource = [
-  {
-    key: 1,
-    name: "유건",
-    loginId: "yugun",
-  },
-];
 export const Staff = () => {
+  const dispatch = useDispatch();
+  const { entities, loading } = useSelector((state) => state.staff);
+
+  useEffect(() => {
+    dispatch(fetchStaffs());
+  }, [dispatch]);
+
   const onSearch = () => {};
   const onDelete = (a) => {};
-
+  if (loading === "pending") return <div>...loading</div>;
   return (
     <>
       <SearchBar onFinish={onSearch} />
-      <TableBlock dataSource={dataSource}>
+      <TableBlock dataSource={entities}>
         {columns.map((el) => (
           <Column
             title={el.title}

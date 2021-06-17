@@ -39,11 +39,12 @@ export const Customer = ({ history }) => {
     <>
       <SearchBar onFinish={onSearch} />
       <Table
-        dataSource={entities.map((el, i) => ({ ...el, key: i }))}
+        dataSource={entities}
         columns={columns}
+        rowKey={(record) => record.id}
         onRow={(record, rowIndex) => {
           return {
-            onClick: (event) => history.push(`/customer/detail/${record.key}`),
+            onClick: (event) => history.push(`/customer/detail/${record.id}`),
           };
         }}
       />

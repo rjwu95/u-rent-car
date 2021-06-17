@@ -1,42 +1,30 @@
 import { Form, Input } from "antd";
 import { FormBlock, SubmitButton } from "../../shared/components";
+import { registerStaff } from "../api";
 
-export const StaffRegister = () => {
-  const onFinish = (a) => {};
+export const StaffRegister = ({ history }) => {
+  const onFinish = (info) => {
+    registerStaff(info)
+      .then(() => {
+        alert("저장했습니다.");
+        history.goBack();
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <FormBlock onFinish={onFinish}>
       <>
-        <Form.Item
-          name="name"
-          label="이름"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-        >
+        <Form.Item name="name" label="이름" rules={[{ required: true }]}>
           <Input />
         </Form.Item>
-        <Form.Item
-          name="loginId"
-          label="아이디"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-        >
+        <Form.Item name="loginId" label="아이디" rules={[{ required: true }]}>
           <Input />
         </Form.Item>
         <Form.Item
           name="password"
           label="비밀번호"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
+          rules={[{ required: true }]}
           hasFeedback
         >
           <Input.Password />

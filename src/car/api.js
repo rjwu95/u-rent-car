@@ -11,3 +11,7 @@ export function updateCar(info) {
 export function getCars() {
   return axios.get("/cars");
 }
+
+export function registerCar(info) {
+  return axios.post("/cars", info);
+}

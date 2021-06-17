@@ -6,18 +6,24 @@ import * as customerAPI from "../api";
 export const CustomerDetail = ({ history }) => {
   const { id } = useParams();
   const [info, setInfo] = useState(null);
+
   useEffect(() => {
     customerAPI.getCustomer(id).then(({ data }) => setInfo(data));
   }, [id]);
+
   const onFinish = useCallback(
     (newInfo) => {
       customerAPI
         .updateCustomer({ ...info, ...newInfo })
-        .then(() => {
+        .then((res) => {
+          console.log(res);
           alert("수정했습니다");
           history.goBack();
         })
-        .catch(() => alert("저장을 실패했습니다"));
+        .catch((err) => {
+          console.log(err);
+          alert("수정을 실패했습니다");
+        });
     },
     [info, history]
   );

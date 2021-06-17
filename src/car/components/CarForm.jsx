@@ -1,10 +1,14 @@
 import React from "react";
-import { DatePicker, Form, Input, InputNumber, Select } from "antd";
-import { SubmitButton, FormBlock } from "../../shared/components";
-import moment from "moment";
+import { Form, Input, InputNumber, Select } from "antd";
+import {
+  SubmitButton,
+  FormBlock,
+  FormDatePicker,
+} from "../../shared/components";
+
 const { Option, OptGroup } = Select;
 
-const statusOptions = [
+const STATUS_OPTIONS = [
   "미운행",
   "정상운행",
   "수리중",
@@ -13,7 +17,7 @@ const statusOptions = [
   "매각",
   "직원운행",
 ];
-const gradeOptions = [
+const GRADE_OPTIONS = [
   "대형차",
   "화물",
   "소형SUV",
@@ -27,23 +31,20 @@ const gradeOptions = [
   "RV",
   "중형SUV",
 ];
-const gearOptions = ["수동", "오토"];
-const fuelOptions = ["휘발유", "경유", "LPG", "전기"];
+const GEAR_OPTIONS = ["수동", "오토"];
+const FUEL_OPTIONS = ["휘발유", "경유", "LPG", "전기"];
 
-export function CarForm({ onFinish, submitLabel = "등록", info }) {
+export function CarForm({ onFinish, info = {} }) {
   return (
-    <FormBlock
-      onFinish={onFinish}
-      initialValues={{ ...info, birth: moment(info.birth) }}
-    >
+    <FormBlock onFinish={onFinish} initialValues={info}>
       <>
         <Form.Item name="number" label="차량번호" rules={[{ required: true }]}>
-          <Input allowClear disabled={!!info} />
+          <Input allowClear />
         </Form.Item>
         <Form.Item name="status" label="운행상태" rules={[{ required: true }]}>
           <Select>
             <OptGroup label="운행상태">
-              {statusOptions.map((el) => (
+              {STATUS_OPTIONS.map((el) => (
                 <Option key={el} value={el}>
                   {el}
                 </Option>
@@ -55,9 +56,9 @@ export function CarForm({ onFinish, submitLabel = "등록", info }) {
           <Input allowClear />
         </Form.Item>
         <Form.Item name="grade" label="차량등급" rules={[{ required: true }]}>
-          <Select disabled={!!info}>
+          <Select>
             <OptGroup label="차량등급">
-              {gradeOptions.map((el) => (
+              {GRADE_OPTIONS.map((el) => (
                 <Option key={el} value={el}>
                   {el}
                 </Option>
@@ -66,9 +67,9 @@ export function CarForm({ onFinish, submitLabel = "등록", info }) {
           </Select>
         </Form.Item>
         <Form.Item name="gear" label="변속방식" rules={[{ required: true }]}>
-          <Select disabled={!!info}>
+          <Select>
             <OptGroup label="변속방식">
-              {gearOptions.map((el) => (
+              {GEAR_OPTIONS.map((el) => (
                 <Option key={el} value={el}>
                   {el}
                 </Option>
@@ -77,9 +78,9 @@ export function CarForm({ onFinish, submitLabel = "등록", info }) {
           </Select>
         </Form.Item>
         <Form.Item name="fuel" label="사용연료" rules={[{ required: true }]}>
-          <Select disabled={!!info}>
+          <Select>
             <OptGroup label="사용연료">
-              {fuelOptions.map((el) => (
+              {FUEL_OPTIONS.map((el) => (
                 <Option key={el} value={el}>
                   {el}
                 </Option>
@@ -102,12 +103,12 @@ export function CarForm({ onFinish, submitLabel = "등록", info }) {
           <InputNumber placeholder="%" />
         </Form.Item>
         <Form.Item name="birth" label="차량연식" rules={[{ required: true }]}>
-          <DatePicker picker="month" />
+          <FormDatePicker picker="month" />
         </Form.Item>
         <Form.Item name="remark" label="메모">
           <Input.TextArea allowClear />
         </Form.Item>
-        <SubmitButton label={submitLabel} />
+        <SubmitButton label={info.id ? "저장" : "등록"} />
       </>
     </FormBlock>
   );
