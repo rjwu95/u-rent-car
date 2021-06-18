@@ -20,17 +20,17 @@ export const ContractDetail = ({ history }) => {
             ...info.car,
             ...newInfo.car,
           },
-          renter: {
-            ...info.renter,
-            ...newInfo.renter,
-          },
           outer: {
             ...info.outer,
             ...newInfo.outer,
           },
+          renter: {
+            ...info.renter,
+            ...newInfo.renter,
+          },
           driver: {
             ...info.driver,
-            ...newInfo.driver,
+            ...(newInfo.driver || newInfo.renter),
           },
         })
         .then(() => {

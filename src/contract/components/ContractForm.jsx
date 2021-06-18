@@ -24,7 +24,7 @@ const { Title } = Typography;
 
 function FormItemInput({ value, onClick, variable, onChange }) {
   useEffect(() => {
-    if (onChange) onChange(variable);
+    if (onChange && variable) onChange(variable);
   }, [onChange, variable]);
   return <Input readOnly onClick={onClick} value={value || variable} />;
 }

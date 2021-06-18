@@ -16,12 +16,10 @@ export const CustomerDetail = ({ history }) => {
       customerAPI
         .updateCustomer({ ...info, ...newInfo })
         .then((res) => {
-          console.log(res);
           alert("수정했습니다");
           history.goBack();
         })
         .catch((err) => {
-          console.log(err);
           alert("수정을 실패했습니다");
         });
     },
