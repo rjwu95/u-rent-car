@@ -8,7 +8,7 @@ import axios from "axios";
 
 axios.defaults.baseURL = "http://localhost:3001/api";
 axios.interceptors.request.use((req) => {
-  req.headers.Authorization = sessionStorage.getItem("token");
+  req.headers.token = sessionStorage.getItem("token");
   return req;
 });
 axios.interceptors.response.use(
@@ -20,6 +20,7 @@ axios.interceptors.response.use(
       store.dispatch(logout());
       throw new Error();
     }
+    throw err;
   }
 );
 

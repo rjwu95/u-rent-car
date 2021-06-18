@@ -4,6 +4,7 @@ import { RegisterButton } from "../../shared/components/RegisterButton";
 import { Table } from "antd";
 import { fetchContracts } from "../contractReducer";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router";
 
 function convertToKoDate(string) {
   return new Date(string).toLocaleString("ko");

@@ -25,8 +25,23 @@ export const authSlice = createSlice({
       sessionStorage.setItem("token", action.payload.token);
       state.entities = action.payload;
     },
+    [fetchLogin.rejected]: (state, action) => {
+      state.loading = "idle";
+      alert(action.payload.message);
+    },
+    [fetchMe.pending]: (state) => {
+      if (state.loading === "idle") {
+        state.loading = "pending";
+      }
+    },
     [fetchMe.fulfilled]: (state, action) => {
+      state.loading = "fulfilled";
       state.entities = action.payload;
+    },
+    [fetchMe.rejected]: (state) => {
+      state.loading = "idle";
+      sessionStorage.removeItem("token");
+      state.entities = {};
     },
   },
 });
@@ -88,7 +103,7 @@ export const staff = createSlice({
   },
 });
 
-export const { logout } = authSlice.reducer;
+export const { logout } = authSlice.actions;
 
 export const store = configureStore({
   reducer: {

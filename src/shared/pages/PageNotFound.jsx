@@ -6,7 +6,7 @@ const Padding = styled.div`
   padding: 20px;
 `;
 
-export default function PageNotFound() {
+export default function PageNotFound({ history }) {
   return (
     <Padding>
       <Title>페이지를 찾을 수 없습니다.</Title>
