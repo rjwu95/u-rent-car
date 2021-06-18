@@ -52,7 +52,7 @@ export function ContractForm({ onFinish, info = {} }) {
   }, [info]);
   const [isSame, setIsSame] = useState(false);
 
-  if (loading === "pending") return <div>...loading</div>;
+  if (loading === "pending") return <div>...로딩중</div>;
   return (
     <FormBlock
       onFinish={onFinish}

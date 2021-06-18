@@ -95,7 +95,7 @@ export const Contract = ({ history }) => {
 
   const onSearch = () => {};
 
-  if (loading === "pending") return <div>...loading</div>;
+  if (loading === "pending") return <div>...로딩중</div>;
   return (
     <>
       <SearchBar onFinish={onSearch} />

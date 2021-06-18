@@ -35,7 +35,7 @@ export const Staff = () => {
 
   const onSearch = () => {};
   const onDelete = (a) => {};
-  if (loading === "pending") return <div>...loading</div>;
+  if (loading === "pending") return <div>...로딩중</div>;
   return (
     <>
       <SearchBar onFinish={onSearch} />
