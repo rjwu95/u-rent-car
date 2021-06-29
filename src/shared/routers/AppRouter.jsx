@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { Login } from "../../auth/pages/Login";
 import { Car, CarDetail, CarRegister } from "../../car/pages";
+import { ContractContent } from "../../contract/components/ContractContent";
 import {
   Contract,
   ContractDetail,
@@ -22,6 +23,7 @@ function Router() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/login" component={Login} />
+        <Route exact path="/contract/content/:id" component={ContractContent} />
         <CLayout>
           <Switch>
             <PrivateRoute exact path="/" page={Home} />

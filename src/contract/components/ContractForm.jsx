@@ -227,6 +227,11 @@ export function ContractForm({ onFinish, info = {} }) {
         </Form.Item>
       </div>
       <SubmitButton label={info.id ? "저장" : "등록"} />
+      {!!info.id && (
+        <Button href={`/contract/content/${info.id}`} target="_blank">
+          계약서 보기
+        </Button>
+      )}
     </FormBlock>
   );
 }

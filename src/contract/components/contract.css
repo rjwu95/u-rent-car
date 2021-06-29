@@ -1,0 +1,46 @@
+font {
+    font-family:굴림,돋움,Seoul,arial,helvetica;
+}	
+body{
+    font-family:굴림,돋움,Seoul,arial,helvetica;
+    font-size:9pt;
+    color: #484848; line-height:17px
+}
+BODY   
+{
+
+scrollbar-3dlight-color:#ffffff; 
+scrollbar-arrow-color:#aaaaaa; 
+scrollbar-track-color:#ffffff; 
+scrollbar-darkshadow-color:#ffffff; 
+scrollbar-face-color:#d7d7d7; 
+scrollbar-highlight-color:#aaaaaa; 
+scrollbar-shadow-color:#aaaaaa;
+
+
+margin-left:0px;
+margin-top:0px;
+margin-bottom:0px;
+margin-right:0px;
+}
+
+table {
+font-family:굴림체;
+font-size:9pt;
+border-collapse:unset !important;
+}
+tr {
+font-family:굴림체;
+font-size:9pt;
+}
+th {
+font-family:굴림체;
+font-size:9pt;
+}
+td {
+font-family:굴림,돋움,Seoul,arial,helvetica;
+font-size:9pt;
+color: #484848; line-height:17px
+}
+
+
