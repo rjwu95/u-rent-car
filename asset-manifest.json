@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/u-rent-car/static/css/main.7716f6f4.chunk.css",
-    "main.js": "/u-rent-car/static/js/main.9ba32d3b.chunk.js",
-    "main.js.map": "/u-rent-car/static/js/main.9ba32d3b.chunk.js.map",
+    "main.js": "/u-rent-car/static/js/main.d34152f3.chunk.js",
+    "main.js.map": "/u-rent-car/static/js/main.d34152f3.chunk.js.map",
     "runtime-main.js": "/u-rent-car/static/js/runtime-main.1acae084.js",
     "runtime-main.js.map": "/u-rent-car/static/js/runtime-main.1acae084.js.map",
     "static/css/2.45213247.chunk.css": "/u-rent-car/static/css/2.45213247.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.45213247.chunk.css",
     "static/js/2.77019723.chunk.js",
     "static/css/main.7716f6f4.chunk.css",
-    "static/js/main.9ba32d3b.chunk.js"
+    "static/js/main.d34152f3.chunk.js"
   ]
 }
