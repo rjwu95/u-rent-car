@@ -19,10 +19,10 @@ const columns = [
     title: "아이디",
     dataIndex: "loginId",
   },
-  {
-    title: "관리",
-    dataIndex: DELETE_KEY,
-  },
+  // {
+  //   title: "관리",
+  //   dataIndex: DELETE_KEY,
+  // },
 ];
 
 export const Staff = () => {
@@ -45,11 +45,11 @@ export const Staff = () => {
             title={el.title}
             dataIndex={el.dataIndex}
             key={el.dataIndex}
-            {...(el.dataIndex === DELETE_KEY && {
-              render: (col, data) => (
-                <Button onClick={() => onDelete(data.loginId)}>삭제</Button>
-              ),
-            })}
+            // {...(el.dataIndex === DELETE_KEY && {
+            //   render: (col, data) => (
+            //     <Button onClick={() => onDelete(data.loginId)}>삭제</Button>
+            //   ),
+            // })}
           />
         ))}
       </TableBlock>

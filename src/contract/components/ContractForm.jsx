@@ -216,7 +216,7 @@ export function ContractForm({ onFinish, info = {} }) {
         <Form.Item name={["car", "name"]} label="차종">
           <Input />
         </Form.Item>
-        <Form.Item name="initKm" label="출발">
+        <Form.Item name="initKm" label="출발 주행거리(Km)">
           <InputNumber />
         </Form.Item>
       </div>

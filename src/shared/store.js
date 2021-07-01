@@ -27,7 +27,7 @@ export const authSlice = createSlice({
     },
     [fetchLogin.rejected]: (state, action) => {
       state.loading = "idle";
-      alert(action.payload.message);
+      alert(action?.payload?.message || "실패했습니다.");
     },
     [fetchMe.pending]: (state) => {
       if (state.loading === "idle") {
