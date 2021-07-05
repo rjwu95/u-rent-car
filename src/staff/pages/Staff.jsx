@@ -39,7 +39,7 @@ export const Staff = () => {
   return (
     <>
       <SearchBar onFinish={onSearch} />
-      <TableBlock dataSource={entities}>
+      <TableBlock dataSource={entities} scroll={{ x: 500 }}>
         {columns.map((el) => (
           <Column
             title={el.title}

@@ -107,6 +107,7 @@ export const Contract = ({ history }) => {
             onClick: (event) => history.push(`/contract/detail/${record.id}`),
           };
         }}
+        scroll={{ x: 500 }}
       />
       <RegisterButton link="/contract/register" label="계약서등록" />
     </>

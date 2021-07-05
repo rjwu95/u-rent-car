@@ -47,6 +47,7 @@ export const Customer = ({ history }) => {
             onClick: (event) => history.push(`/customer/detail/${record.id}`),
           };
         }}
+        scroll={{ x: 500 }}
       />
       <RegisterButton label="고객등록" link="/customer/register" />
     </>
