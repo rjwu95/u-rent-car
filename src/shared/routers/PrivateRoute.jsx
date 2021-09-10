@@ -11,7 +11,7 @@ export default function PrivateRoute({ page: Page, ...rest }) {
     if (!token) {
       dispatch(fetchMe());
     }
-  }, [dispatch]);
+  }, [dispatch, token]);
 
   return (
     // history를 props으로 넘기기 위해서 분기처리

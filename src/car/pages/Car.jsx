@@ -72,6 +72,7 @@ export const Car = ({ history }) => {
             onClick: (event) => history.push(`/car/detail/${record.id}`),
           };
         }}
+        scroll={{ x: 500 }}
       />
       <RegisterButton link="/car/register" label="차량등록" />
     </>

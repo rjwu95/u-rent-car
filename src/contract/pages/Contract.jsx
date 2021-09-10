@@ -4,7 +4,6 @@ import { RegisterButton } from "../../shared/components/RegisterButton";
 import { Table } from "antd";
 import { fetchContracts } from "../contractReducer";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router";
 
 function convertToKoDate(string) {
   return new Date(string).toLocaleString("ko");
@@ -108,6 +107,7 @@ export const Contract = ({ history }) => {
             onClick: (event) => history.push(`/contract/detail/${record.id}`),
           };
         }}
+        scroll={{ x: 500 }}
       />
       <RegisterButton link="/contract/register" label="계약서등록" />
     </>
