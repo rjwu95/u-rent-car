@@ -1,7 +1,13 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { Login } from "../../auth/pages/Login";
-import { Car, CarDetail, CarRegister } from "../../car/pages";
+import {
+  Car,
+  CarDetail,
+  CarRegister,
+  CarCheck,
+  CarCheckView,
+} from "../../car/pages";
 import { ContractContent } from "../../contract/components/ContractContent";
 import {
   Contract,
@@ -24,6 +30,8 @@ function Router() {
       <Switch>
         <Route exact path="/login" component={Login} />
         <Route exact path="/contract/content/:id" component={ContractContent} />
+        <Route exact path="/car/check/:id" component={CarCheck} />
+        <Route exact path="/car/check/view/:dataUrl" component={CarCheckView} />
         <CLayout>
           <Switch>
             <PrivateRoute exact path="/" page={Home} />

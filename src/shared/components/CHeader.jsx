@@ -3,7 +3,7 @@ import { MenuOutlined } from "@ant-design/icons";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { logout } from "../../shared/store";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const { Header } = Layout;
 
@@ -19,7 +19,7 @@ const HeaderRow = styled(Row)`
 
 export const CHeader = ({ setVisible }) => {
   const dispatch = useDispatch();
-  const token = useSelector((state) => state.auth.entities?.token);
+  const token = sessionStorage.getItem("token");
   return (
     <Header>
       <HeaderRow>
