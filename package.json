@@ -2,7 +2,7 @@
   "name": "u-rent-car",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://rjwu95.github.io/u-rent-car",
+  "homepage": "http://rjwu95.github.io",
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.1",
     "@testing-library/jest-dom": "^5.11.4",
