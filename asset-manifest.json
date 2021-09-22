@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/u-rent-car/static/css/main.7716f6f4.chunk.css",
-    "main.js": "/u-rent-car/static/js/main.d5c5cd75.chunk.js",
-    "main.js.map": "/u-rent-car/static/js/main.d5c5cd75.chunk.js.map",
-    "runtime-main.js": "/u-rent-car/static/js/runtime-main.1acae084.js",
-    "runtime-main.js.map": "/u-rent-car/static/js/runtime-main.1acae084.js.map",
-    "static/css/2.45213247.chunk.css": "/u-rent-car/static/css/2.45213247.chunk.css",
-    "static/js/2.39094c94.chunk.js": "/u-rent-car/static/js/2.39094c94.chunk.js",
-    "static/js/2.39094c94.chunk.js.map": "/u-rent-car/static/js/2.39094c94.chunk.js.map",
-    "index.html": "/u-rent-car/index.html",
-    "static/css/2.45213247.chunk.css.map": "/u-rent-car/static/css/2.45213247.chunk.css.map",
-    "static/css/main.7716f6f4.chunk.css.map": "/u-rent-car/static/css/main.7716f6f4.chunk.css.map",
-    "static/js/2.39094c94.chunk.js.LICENSE.txt": "/u-rent-car/static/js/2.39094c94.chunk.js.LICENSE.txt",
-    "static/media/default.0e8bd641.jpeg": "/u-rent-car/static/media/default.0e8bd641.jpeg",
-    "static/media/in.2245eb40.jpeg": "/u-rent-car/static/media/in.2245eb40.jpeg",
-    "static/media/title_02.a3186fa8.jpeg": "/u-rent-car/static/media/title_02.a3186fa8.jpeg"
+    "main.css": "/static/css/main.7716f6f4.chunk.css",
+    "main.js": "/static/js/main.d5c5cd75.chunk.js",
+    "main.js.map": "/static/js/main.d5c5cd75.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.6ce40fc2.js",
+    "runtime-main.js.map": "/static/js/runtime-main.6ce40fc2.js.map",
+    "static/css/2.45213247.chunk.css": "/static/css/2.45213247.chunk.css",
+    "static/js/2.15cadfd7.chunk.js": "/static/js/2.15cadfd7.chunk.js",
+    "static/js/2.15cadfd7.chunk.js.map": "/static/js/2.15cadfd7.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.45213247.chunk.css.map": "/static/css/2.45213247.chunk.css.map",
+    "static/css/main.7716f6f4.chunk.css.map": "/static/css/main.7716f6f4.chunk.css.map",
+    "static/js/2.15cadfd7.chunk.js.LICENSE.txt": "/static/js/2.15cadfd7.chunk.js.LICENSE.txt",
+    "static/media/default.0e8bd641.jpeg": "/static/media/default.0e8bd641.jpeg",
+    "static/media/in.2245eb40.jpeg": "/static/media/in.2245eb40.jpeg",
+    "static/media/title_02.a3186fa8.jpeg": "/static/media/title_02.a3186fa8.jpeg"
   },
   "entrypoints": [
-    "static/js/runtime-main.1acae084.js",
+    "static/js/runtime-main.6ce40fc2.js",
     "static/css/2.45213247.chunk.css",
-    "static/js/2.39094c94.chunk.js",
+    "static/js/2.15cadfd7.chunk.js",
     "static/css/main.7716f6f4.chunk.css",
     "static/js/main.d5c5cd75.chunk.js"
   ]
