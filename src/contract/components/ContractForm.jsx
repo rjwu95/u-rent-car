@@ -230,11 +230,13 @@ export function ContractForm({ onFinish, info = {} }) {
           <Button
             onClick={() => {
               const temp = window.open(
-                !!carCheckUrl
-                  ? `/car/check/view/${carCheckUrl}`
-                  : `/car/check/${info.id}`
+                !!carCheckUrl ? "/car/check/view" : `/car/check/${info.id}`
               );
-              temp.sessionStorage.setItem(sessionStorage.getItem("token"));
+              temp.sessionStorage.setItem(
+                "token",
+                sessionStorage.getItem("token")
+              );
+              temp.carCheckUrl = carCheckUrl;
             }}
           >
             {!!carCheckUrl ? "차량체크보기" : "차량체크"}

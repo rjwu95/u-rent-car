@@ -30,8 +30,8 @@ function Router() {
       <Switch>
         <Route exact path="/login" component={Login} />
         <Route exact path="/contract/content/:id" component={ContractContent} />
+        <Route exact path="/car/check/view" component={CarCheckView} />
         <Route exact path="/car/check/:id" component={CarCheck} />
-        <Route exact path="/car/check/view/:dataUrl" component={CarCheckView} />
         <CLayout>
           <Switch>
             <PrivateRoute exact path="/" page={Home} />

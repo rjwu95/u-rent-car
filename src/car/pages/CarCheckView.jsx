@@ -1,9 +1,8 @@
 import React from "react";
-import { useParams } from "react-router";
 import defaultImage from "../../assets/default.jpeg";
 
 export const CarCheckView = () => {
-  const { dataUrl } = useParams();
+  const dataUrl = window.carCheckUrl;
 
   return (
     <>
