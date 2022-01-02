@@ -22,8 +22,8 @@ export function ContractContent() {
   const getPrettryHp = useCallback(
     (str) => {
       return info[str].hp.match(/-/)
-        ? info[str].hp.slice(0, 9)
-        : info[str].hp.slice(0, 3) + "-" + info[str].hp.slice(3, 7) + "-";
+        ? info[str].hp?.slice(0, 9)
+        : info[str].hp?.slice(0, 3) + "-" + info[str].hp?.slice(3, 7) + "-";
     },
     [info]
   );
@@ -221,7 +221,7 @@ export function ContractContent() {
                                     유효기간
                                   </td>
                                   <td className={styles.td2} align="center">
-                                    {info.renter.licenseDate.slice(0, 10)}
+                                    {info.renter.licenseDate?.slice(0, 10)}
                                   </td>
                                 </tr>
                                 <tr height="25" align="center">
