@@ -625,9 +625,16 @@ export function ContractContent() {
                                         <tr>
                                           <td>
                                             <img
-                                              src={defaultImage}
+                                              src={decodeURIComponent(
+                                                info.carCheckUrl
+                                              )}
                                               height="280"
                                               alt="default"
+                                              style={{
+                                                backgroundImage: `url(${defaultImage})`,
+                                                backgroundSize: 205.875,
+                                                WebkitPrintColorAdjust: "exact",
+                                              }}
                                             />
                                           </td>
                                           <td

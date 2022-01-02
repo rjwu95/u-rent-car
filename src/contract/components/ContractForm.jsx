@@ -36,6 +36,7 @@ const RightButton = styled(Button)`
 export function ContractForm({ onFinish, info = {} }) {
   const [renterAddress, renterPostcode, onSearchRenterPost] = usePostcode();
   const [driverAddress, driverPostcode, onSearchDriverPost] = usePostcode();
+  const [carCheckUrl, setCarCheckUrl] = useState(info.carCheckUrl);
   const { entities: staffs, loading } = useSelector((state) => state.staff);
   const dispatch = useDispatch();
 
@@ -52,10 +53,21 @@ export function ContractForm({ onFinish, info = {} }) {
   }, [info]);
   const [isSame, setIsSame] = useState(false);
 
+  useEffect(() => {
+    const listener = (e) => {
+      if (e.key === `car-check/${info.id}`) {
+        setCarCheckUrl(e.newValue);
+        window.localStorage.removeItem(`car-check/${info.id}`);
+      }
+    };
+    window.addEventListener("storage", listener);
+    return () => window.removeEventListener("storage", listener);
+  }, [info.id]);
+
   if (loading === "pending") return <div>...로딩중</div>;
   return (
     <FormBlock
-      onFinish={onFinish}
+      onFinish={(newInfo) => onFinish({ ...newInfo, carCheckUrl })}
       initialValues={{
         ...info,
       }}
@@ -215,6 +227,20 @@ export function ContractForm({ onFinish, info = {} }) {
         </Form.Item>
         <Form.Item name={["car", "name"]} label="차종">
           <Input />
+          <Button
+            onClick={() => {
+              const temp = window.open(
+                !!carCheckUrl ? "/car/check/view" : `/car/check/${info.id}`
+              );
+              temp.sessionStorage.setItem(
+                "token",
+                sessionStorage.getItem("token")
+              );
+              temp.carCheckUrl = carCheckUrl;
+            }}
+          >
+            {!!carCheckUrl ? "차량체크보기" : "차량체크"}
+          </Button>
         </Form.Item>
         <Form.Item name="initKm" label="출발 주행거리(Km)">
           <InputNumber />

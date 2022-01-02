@@ -6,7 +6,9 @@ import { store, logout } from "./shared/store";
 import { Provider } from "react-redux";
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:3001/api";
+axios.defaults.baseURL =
+  process.env.REACT_APP_HOST || "http://localhost:3001/api";
+
 axios.interceptors.request.use((req) => {
   req.headers.token = sessionStorage.getItem("token");
   return req;

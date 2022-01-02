@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Table } from "antd";
+import { Table } from "antd";
 import { SearchBar, RegisterButton } from "../../shared/components";
 import { TableBlock } from "../../shared/components/TableBlock";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,8 +7,6 @@ import { useEffect } from "react";
 import { fetchStaffs } from "../reducer";
 
 const { Column } = Table;
-
-const DELETE_KEY = "delete";
 
 const columns = [
   {
@@ -34,7 +32,6 @@ export const Staff = () => {
   }, [dispatch]);
 
   const onSearch = () => {};
-  const onDelete = (a) => {};
   if (loading === "pending") return <div>...로딩중</div>;
   return (
     <>
